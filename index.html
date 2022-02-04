@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="grid-x">
     <header class="cell small-12 text-center">
-        <h1>TunedIn</h1>
-        <br>
-        <div class="card-section" id="city-form">
-            <label for="search-bar" class="text-center"><h3>Search for musicians and engineers in your area!</h3></label>
-            <input type="text" name="cityname" id="city-name" autofocus="true" class="" placeholder="Enter city name">
-            <button type="submit" id="btn" class="button expanded">Search</button>
-        </div>
+        <div class="top-bar">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">TunedIn</li>
+                <li>
+                  <a href="#">Search for local artists or engineers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="top-bar-right">
+              <ul class="menu">
+                <li><input type="search" placeholder="Search"></li>
+                <li><button type="button" class="button">Search</button></li>
+              </ul>
+            </div>
+          </div>
+    </div>
     </header>
 
 
