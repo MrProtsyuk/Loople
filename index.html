@@ -10,12 +10,29 @@
     crossorigin=""/>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
+<body class="grid-x">
     <header class="cell small-12 text-center">
-        <h1>TunedIn</h1>
+        <div class="top-bar">
+            <div class="top-bar-left">
+              <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">TunedIn</li>
+                <li>
+                  <a href="#">Search for local artists or engineers</a>
+                </li>
+              </ul>
+            </div>
+            <div class="top-bar-right">
+              <ul class="menu">
+                <li><input type="search" placeholder="Search"></li>
+                <li><button type="button" class="button">Search</button></li>
+              </ul>
+            </div>
+          </div>
+    </div>
     </header>
 
     <main class="cell small-6">
+
         <div id="map"></div>
     </main>
 
