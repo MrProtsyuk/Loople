@@ -10,38 +10,25 @@
     crossorigin=""/>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body class="grid-x">
+<body class="grid-x grid-padding-x">
     <header class="cell small-12 text-center">
-        <div class="top-bar">
-            <div class="top-bar-left">
-              <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">TunedIn</li>
-                <li>
-                  <a href="#">Search for local artists or engineers</a>
-                </li>
-              </ul>
+        <header class="cell small-12 text-center">
+            <h1>TunedIn</h1>
+            <div class="card-section" id="city-form">
+                <label for="search-bar" class="text-center"><h3>Search for musicians and engineers in your area!</h3></label>
+                <input type="text" name="musictype" id="music-type" autofocus="true" placeholder="What are you looking for? ex. guitar player, producer, sound-engineer, etc.">
+                <input type="text" name="cityname" id="city-name" autofocus="true" class="" placeholder="Enter city name">
+                <button type="submit" id="btn" class="button expanded">Search</button>
             </div>
-            <div class="top-bar-right">
-              <ul class="menu">
-                <li><input type="search" placeholder="Search"></li>
-                <li><button type="button" class="button">Search</button></li>
-              </ul>
-            </div>
-          </div>
-    </div>
+        </header>
     </header>
-
-    <main class="cell small-12">
-
+    
+    <main class="cell small-6 align">
         <div id="map"></div>
     </main>
-
-    <section class="cell small-6">
-        <div id="yelp"></div>
-    </section>
     
     <section class="cell small-6">
-        <div id="linkedin"></div>
+        <div id="facebook"></div>
     </section>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
