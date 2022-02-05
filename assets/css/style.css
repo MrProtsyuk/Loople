@@ -41,13 +41,7 @@ header {
     }
 
 }
-@media screen and (max-width: 480px) {
-    #map {
-        height: 375px;
-        width: 370px;
-    }
 
-}
 @media screen and (max-width: 480px) {
     #map {
         height: 375px;
