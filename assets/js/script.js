@@ -1,29 +1,29 @@
-// Map Variable
-var map = L.map('map').setView([38.58, -121.5], 13);
+// // Map Variable
+// var map = L.map('map').setView([38.58, -121.5], 13);
 
-// Map 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibXJwcm90c3l1ayIsImEiOiJja3o3dnhpeHIwZ3g1Mm9tbXdsZTRsY3IzIn0.Lrx09QwyMOJGTdqtHrE3eg'
-}).addTo(map);
+// // Map 
+// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'mapbox/streets-v11',
+//     tileSize: 512,
+//     zoomOffset: -1,
+//     accessToken: 'pk.eyJ1IjoibXJwcm90c3l1ayIsImEiOiJja3o3dnhpeHIwZ3g1Mm9tbXdsZTRsY3IzIn0.Lrx09QwyMOJGTdqtHrE3eg'
+// }).addTo(map);
 
-// Map Search Bar
-L.control.scale().addTo(map);
+// // Map Search Bar
+// L.control.scale().addTo(map);
 
-var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+// var searchControl = new L.esri.Controls.Geosearch().addTo(map);
 
-         var results = new L.LayerGroup().addTo(map);
+//          var results = new L.LayerGroup().addTo(map);
 
-             searchControl.on('results', function(data){
-                results.clearLayers();
-                for (var i = data.results.length - 1; i >= 0; i--) {
-                  results.addLayer(L.marker(data.results[i].latlng));
-                }
-              });
+//              searchControl.on('results', function(data){
+//                 results.clearLayers();
+//                 for (var i = data.results.length - 1; i >= 0; i--) {
+//                   results.addLayer(L.marker(data.results[i].latlng));
+//                 }
+//               });
 
 
 
