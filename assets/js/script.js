@@ -76,7 +76,7 @@ var displayYoutube = function(videos, searchTerm) {
     vidContainerEl.setAttribute("href", "https://www.youtube.com/watch?v=" + videoLink);
 
     youtubeContainerEL.appendChild(vidContainerEl);
-    // create span el to hold video name, channel name, and img
+    // create elements to hold video name, channel name, and img
     titleEl = document.createElement("h5");
     titleEl.textContent = videoName;
     vidImgEl = document.createElement("img");
