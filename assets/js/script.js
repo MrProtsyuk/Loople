@@ -37,7 +37,7 @@ var displayYoutube = function(videos, searchTerm) {
     // set variables
     var videoName = videosItem[i].snippet.title;
     var channelName = videosItem[i].snippet.channelTitle;
-    var videoThumbnail = videosItem[i].snippet.thumbnails.default.url;
+    var videoThumbnail = videosItem[i].snippet.thumbnails.medium.url;
     var videoLink = videosItem[i].id.videoId;
     console.log(videoName, channelName, videoThumbnail);
 
@@ -66,7 +66,7 @@ var displayYoutube = function(videos, searchTerm) {
 // get data from yelp api
 var getYoutubeData = function(category) {
   // format yelp api url
-  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&key=AIzaSyAOQbpKtfxhVRprkzvTqdOdbcADvgO2CI8";
+  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyAOQbpKtfxhVRprkzvTqdOdbcADvgO2CI8";
 
   // make request to url with nested then function
   fetch(apiUrl).then(function(response) {
