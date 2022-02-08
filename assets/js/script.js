@@ -43,7 +43,7 @@ var displayYoutube = function(videos, searchTerm) {
 
     // create and print elements to page
     var vidContainerEl = document.createElement("a");
-    vidContainerEl.classList = "card cell small-3 margin-top";
+    vidContainerEl.classList = "card cell small-3 margin-top textcenter";
     vidContainerEl.setAttribute("href", "https://www.youtube.com/watch?v=" + videoLink);
 
     youtubeContainerEL.appendChild(vidContainerEl);
