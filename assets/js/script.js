@@ -16,7 +16,6 @@ var formSubmitHandler = function(event) {
   if (genreName) {
     getYoutubeData(genreName);
     youtubeInputEl.value = "";
-    mapInputEl.value = "";
   } else {
     alert("Please enter a valid response")
   }
@@ -93,64 +92,47 @@ searchFormEl.addEventListener("submit", formSubmitHandler)
 
 // getYoutubeData();
 
-// //News Submit handler
-// var formSubmitHandler = function(event) {
-//     event.preventDefault();
-  
-//   // var cityName = mapInputEl.value.trim();
-//     var genreName = newsInputEl.value.trim();
-  
-//     if (articleName) {
-//       getNewsData(articleName);
-//       newsInputEl.value = "";
-//       mapInputEl.value = "";
-//     } else {
-//       alert("Please enter a valid response")
-//     }
-  
-//     console.log(event);
-//   }
+//News Api
+ var getNewsData = function(category) {
 
-// //News Api
-//  var getNewsData = function(category) {
-
-//      var apiUrl = 'https://newsapi.org/v2/everything?' + category + 'from=2022-02-09&' + 'sortBy=popularity&' + 'apiKey=64182e052fd1413bba8aa03676db4aa2';
+     var apiUrl = 'https://newsapi.org/v2/everything?q=' + category + '&from=2022-02-09&' + 'sortBy=popularity&' + 'apiKey=64182e052fd1413bba8aa03676db4aa2';
     
-//      fetch(apiUrl)
-//      .then(function(response) {
-//          if (response.ok) {
-//              response.json().then(function(data) {
-//                  displayNews(data, category);
-//              });
-//          } else {
-//              alert("Error: Articles Not Found");
-//          }
-//      })
-//      .catch(function(error) {
-//          alert("Unable to connect to News");
-//      });
-//  };
+     fetch(apiUrl)
+     .then(function(response) {
+         if (response.ok) {
+             response.json().then(function(data) {
+                 displayNews(data, category);
+             });
+         } else {
+             alert("Error: Articles Not Found");
+         }
+     })
+     .catch(function(error) {
+         alert("Unable to connect to News");
+     });
+ };
 
-// var displayNews = function(news) {
-//     var newsItem = news.items;
-//   if (news.length === 0) {
-//     newsContainerEl.textContent = "No Arcticles found!";
-//     return;
-//   }
+var displayNews = function(news) {
+    var newsItem = news.articels;
+    console.log(news);
+  if (news.length === 0) {
+    newsContainerEl.textContent = "No Arcticles found!";
+    return;
+  }
 
-//   newsContainerEl.textContent = "";
+  newsContainerEl.textContent = "";
   
-//   for (var i = 0; i < newsItem.length; i++) {
-//       var articleContainerEl = document.createElement("a");
-//       articleContainerEl.classList = "card cell small-5 margin-top textcenter";
-//       articleContainerEl.setAttribute("href");
+  for (var i = 0; i < newsItem.length; i++) {
+      var articleContainerEl = document.querySelector("#map")
+      var articleContainerEl = document.createElement("a");
+      articleContainerEl.classList = "card cell small-5 margin-top textcenter";
+      articleContainerEl.setAttribute("href");
+      newsContainerEl.appendChild(articleContainerEl)
+    // create elements to hold article name
+    titleEl = document.createElement("h5");
+    titleEl.textContent = arcticleName;
+    // append to container
+    articleContainerEl.appendChild(titleEl);
+  }
 
-//       newsContainerEL.appendChild(vidContainerEl);
-//     // create elements to hold article name
-//     titleEl = document.createElement("h5");
-//     titleEl.textContent = arcticleName;
-//     // append to container
-//     articleContainerEl.appendChild(titleEl);
-//   }
-
-// }
+}
