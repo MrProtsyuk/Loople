@@ -2,8 +2,9 @@
 
 var searchFormEl = document.querySelector("#city-form")
 var youtubeInputEl = document.querySelector("#music-type");
-var mapInputEl = document.querySelector("#city-name");
 var youtubeContainerEL = document.querySelector("#youtube");
+var newsContainerEl = document.querySelector("map");
+var newsInputEl = document.querySelector("#music-type");
 
 // handle form submission
 var formSubmitHandler = function(event) {
@@ -89,26 +90,64 @@ var getYoutubeData = function(category) {
 
 // getYoutubeData();
 
+//News Submit handler
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+  
+  // var cityName = mapInputEl.value.trim();
+    var genreName = newsInputEl.value.trim();
+  
+    if (articleName) {
+      getNewsData(articleName);
+      newsInputEl.value = "";
+      mapInputEl.value = "";
+    } else {
+      alert("Please enter a valid response")
+    }
+  
+    console.log(event);
+  }
 
-// add event listeners
-searchFormEl.addEventListener("submit", formSubmitHandler)
+//News Api
+ var getNewsData = function(category) {
 
-// Map Variable
-var map = L.map('map').setView([38.58, -121.5], 13);
-//City Variable
-var cityNameEl = document.querySelector("#city-name");
+     var apiUrl = 'https://newsapi.org/v2/everything?' + category + 'from=2022-02-09&' + 'sortBy=popularity&' + 'apiKey=64182e052fd1413bba8aa03676db4aa2';
+    
+     fetch(apiUrl)
+     .then(function(response) {
+         if (response.ok) {
+             response.json().then(function(data) {
+                 displayNews(data, category);
+             });
+         } else {
+             alert("Error: Articles Not Found");
+         }
+     })
+     .catch(function(error) {
+         alert("Unable to connect to News");
+     });
+ };
 
-// Map 
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibXJwcm90c3l1ayIsImEiOiJja3o3dnhpeHIwZ3g1Mm9tbXdsZTRsY3IzIn0.Lrx09QwyMOJGTdqtHrE3eg'
-}).addTo(map);
-// Map Search
-L.Control.geocoder().addTo(map);
+var displayNews = function(news) {
+    var newsItem = news.items;
+  if (news.length === 0) {
+    newsContainerEl.textContent = "No Arcticles found!";
+    return;
+  }
 
-// Map Search Bar
-L.control.scale().addTo(map);
+  newsContainerEl.textContent = "";
+  
+  for (var i = 0; i < newsItem.length; i++) {
+      var articleContainerEl = document.createElement("a");
+      articleContainerEl.classList = "card cell small-5 margin-top textcenter";
+      articleContainerEl.setAttribute("href");
+
+      newsContainerEL.appendChild(vidContainerEl);
+    // create elements to hold article name
+    titleEl = document.createElement("h5");
+    titleEl.textContent = arcticleName;
+    // append to container
+    articleContainerEl.appendChild(titleEl);
+  }
+
+}
