@@ -92,6 +92,24 @@ searchFormEl.addEventListener("submit", formSubmitHandler)
 
 // getYoutubeData();
 
+//News Submit handler
+var formSubmitHandler = function(event) {
+    event.preventDefault();
+  
+  // var cityName = mapInputEl.value.trim();
+    var genreName = newsInputEl.value.trim();
+  
+    if (articleName) {
+      getNewsData(articleName);
+      newsInputEl.value = "";
+      mapInputEl.value = "";
+    } else {
+      alert("Please enter a valid response")
+    }
+  
+    console.log(event);
+  }
+
 //News Api
  var getNewsData = function(category) {
 
@@ -113,8 +131,7 @@ searchFormEl.addEventListener("submit", formSubmitHandler)
  };
 
 var displayNews = function(news) {
-    var newsItem = news.articels;
-    console.log(news);
+    var newsItem = news.items;
   if (news.length === 0) {
     newsContainerEl.textContent = "No Arcticles found!";
     return;
@@ -123,11 +140,11 @@ var displayNews = function(news) {
   newsContainerEl.textContent = "";
   
   for (var i = 0; i < newsItem.length; i++) {
-      var articleContainerEl = document.querySelector("#map")
       var articleContainerEl = document.createElement("a");
       articleContainerEl.classList = "card cell small-5 margin-top textcenter";
       articleContainerEl.setAttribute("href");
-      newsContainerEl.appendChild(articleContainerEl)
+
+      newsContainerEL.appendChild(vidContainerEl);
     // create elements to hold article name
     titleEl = document.createElement("h5");
     titleEl.textContent = arcticleName;
