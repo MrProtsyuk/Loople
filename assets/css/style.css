@@ -1,9 +1,17 @@
 #map {
-    height: 500px;
-    width: 500px;
+    height: 550px;
+    width: 550px;
     margin: 10px 0 10px 0;
 }
 
+.margin-top {
+    margin: 5px;
+}
+
+.textcenter {
+    text-align: center;
+
+}
 
 header {
     padding: 10px 0 0 0;
