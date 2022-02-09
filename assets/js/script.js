@@ -108,14 +108,3 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // Map Search Bar
 L.control.scale().addTo(map);
-
-var searchControl = new L.esri.Controls.Geosearch().addTo(map);
-
-         var results = new L.LayerGroup().addTo(map);
-
-             searchControl.on('results', function(data){
-                results.clearLayers();
-                for (var i = data.results.length - 1; i >= 0; i--) {
-                  results.addLayer(L.marker(data.results[i].latlng));
-                }
-              });
