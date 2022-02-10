@@ -3,8 +3,9 @@
 var searchFormEl = document.querySelector("#city-form")
 var youtubeInputEl = document.querySelector(".musictype");
 var youtubeContainerEL = document.querySelector("#youtube");
+var newsContainerEL = document.querySelector("#news-list")
 var newsInputEl = document.querySelector(".musictype");
-var newsList = document.querySelector(".news-list")
+var newsList = document.querySelector("#news-list")
 
 
 // handle form submission
@@ -93,8 +94,7 @@ var getYoutubeData = function(category) {
 };
 
 //Show News Api
-var displayNews = function(articles, searchTerm) {
-  var articlesItem = response.articles;
+var displayNews = function(articles, response) {
   if (articles.length === 0) {
     newsContainerEL.textContent = "No Articles found!";
     return;
@@ -102,7 +102,7 @@ var displayNews = function(articles, searchTerm) {
 
   newsContainerEL.textContent = "";
 
-        for(var i=0; i< articlesItem.length; i++){
+        for(var i=0; i< articles.length; i++){
 
             var articleName = response.articles[i].title;
             var articleImg = response.articles[i].urlToImage;
@@ -127,9 +127,10 @@ var displayNews = function(articles, searchTerm) {
 
 // Get News Api
 var getNews = function(category) {
-  var apiUrl = "https://newsapi.org/v2/everything?q=" + category + "&apiKey=64182e052fd1413bba8aa03676db4aa2"
+  var newsUrl = 'https://api.thenewsapi.com/v1/news/all?api_token=q3R3bJCo4uZl6fKHXFT1QaQ5I7SOcD2pepTJKPl9&search=' + category + '&language=en&limit=3';
 
-  fetch(apiUrl).then(function(response) {
+
+  fetch(newsUrl).then(function(response) {
 
     if (response.ok) {
       response.json().then(function(data) {
