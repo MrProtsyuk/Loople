@@ -8,6 +8,10 @@
     margin: 5px;
 }
 
+.card {
+    background-color: #cc4b37;
+}
+
 .textcenter {
     text-align: center;
 }

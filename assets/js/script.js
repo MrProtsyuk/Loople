@@ -99,11 +99,9 @@ var displayNews = function(articles, response) {
   }
 
   newsContainerEL.textContent = "";
-
+  
         for(var i=0; i< articles.data.length; i++){
-
             var articleName = articles.data[i].title;
-            console.log(articleName);
             var articleImg = articles.data[i].image_url;
             var articleDescription = articles.data[i].description;
             var articleLink = articles.data[i].url;
