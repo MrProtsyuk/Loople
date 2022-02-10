@@ -14,21 +14,28 @@
     <header class="alert cell small-12 text-center">
         <header class="cell small-12 text-center">
             <h1 class="color">Loople</h1>
+            <h2 class="color">Get the most recent news and videos on your favorite topics.</h2>
             <form class="card-section" id="city-form">
                 <input type="text" name="musictype" class="musictype border-radius" autofocus="true" placeholder="Search multiple platforms at once:">
                 <button type="submit" class="alert button expanded border-radius">Search</button>
+                <ul class="grid-x grid-padding-x align-spaced no-bullet">
+                    <li>The News</li>
+                    <li>Youtube</li>
+                </ul>
             </form>
         </header>
     </header>
     
     <div class="align-between">
         <div class="grid-x">
-            <section class="cell small-6 margin">
-                <div id="youtube" class="grid-x grid-margin-x small-up-2 medium-up-3 "></div>
+            <section class="cell small-6" id="news-container">
+                <div id="news-list" class="grid-x grid-margin-x  small-up-2 medium-up-3">
+                </div>
             </section>
             
-            <section class="cell small-6" id="news-container">
-                <div id="news-list" class="grid-x grid-margin-x small-up-2 medium-up-3"></div>
+            <section class="cell small-6">
+                <div id="youtube" class="grid-x grid-margin-x  small-up-2 medium-up-3">
+                </div>
             </section>
             
             
