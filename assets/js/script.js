@@ -3,7 +3,7 @@
 var searchFormEl = document.querySelector("#city-form")
 var youtubeInputEl = document.querySelector(".musictype");
 var youtubeContainerEL = document.querySelector("#youtube");
-var newsInputEl = document.querySelector(".music-type");
+var newsInputEl = document.querySelector(".musictype");
 var newsList = document.querySelector(".news-list")
 
 
@@ -13,10 +13,14 @@ var formSubmitHandler = function(event) {
 
 // var cityName = mapInputEl.value.trim();
   var genreName = youtubeInputEl.value.trim();
+  var genreName = newsInputEl.value.trim();
 
   if (genreName) {
     getYoutubeData(genreName);
     youtubeInputEl.value = "";
+  } if (genreName) {
+    getNews(genreName);
+    newsInputEl.value = "";
   } else {
     alert("Please enter a valid response")
   }
@@ -88,17 +92,17 @@ var getYoutubeData = function(category) {
   console.log(category);
 };
 
-// add event listeners
-searchFormEl.addEventListener("submit", formSubmitHandler)
-// searchFormEl.addEventListener("submit", getNews)
-// getYoutubeData();
+//Show News Api
+var displayNews = function(articles, searchTerm) {
+  var articlesItem = response.articles;
+  if (articles.length === 0) {
+    newsContainerEL.textContent = "No Articles found!";
+    return;
+  }
 
-//News Api
-function getNews(){
-    fetch("https://newsapi.org/v2/everything?q=bitcoin&apiKey=64182e052fd1413bba8aa03676db4aa2")
-    .then(a=>a.json())
-    .then(response=> {
-        for(var i=0; i<response.articles.length; i++){
+  newsContainerEL.textContent = "";
+
+        for(var i=0; i< articlesItem.length; i++){
 
             var articleName = response.articles[i].title;
             var articleImg = response.articles[i].urlToImage;
@@ -119,5 +123,31 @@ function getNews(){
             newsContainerEl.appendChild(newsDescriptionEl);
 
         }
-    })
 }
+
+// Get News Api
+var getNews = function(category) {
+  var apiUrl = "https://newsapi.org/v2/everything?q=" + category + "&apiKey=64182e052fd1413bba8aa03676db4aa2"
+
+  fetch(apiUrl).then(function(response) {
+
+    if (response.ok) {
+      response.json().then(function(data) {
+        displayNews(data, category);
+        console.log(data, category);
+      });
+    } else {
+      alert("Error: Articles Not Found")
+    }
+  })
+  .catch(function (error) {
+    alert("Unable to connect to News");
+  });
+
+  console.log(category);
+}
+
+// add event listeners
+searchFormEl.addEventListener("submit", formSubmitHandler)
+
+
