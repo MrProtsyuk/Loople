@@ -12,10 +12,22 @@
     text-align: center;
 }
 
+h1 {
+    font-family: 'Dosis', sans-serif;
+}
+
 header {
     padding: 10px 0 0 0;
+    background: rgb(132, 130, 130);
+    height: min-content;
+}
 
-    background: skyblue;
+.border-radius {
+    border-radius: 15px;
+}
+
+.color {
+    color: #cc4b37;
 }
 
 @media screen and (max-width: 980px) {
