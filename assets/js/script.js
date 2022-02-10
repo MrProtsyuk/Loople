@@ -1,10 +1,11 @@
 // Yelp Api 
 
 var searchFormEl = document.querySelector("#city-form")
-var youtubeInputEl = document.querySelector("#music-type");
+var youtubeInputEl = document.querySelector(".musictype");
 var youtubeContainerEL = document.querySelector("#youtube");
-var newsContainerEl = document.querySelector("map");
-var newsInputEl = document.querySelector("#music-type");
+var newsInputEl = document.querySelector(".music-type");
+var newsList = document.querySelector(".news-list")
+
 
 // handle form submission
 var formSubmitHandler = function(event) {
@@ -16,7 +17,6 @@ var formSubmitHandler = function(event) {
   if (genreName) {
     getYoutubeData(genreName);
     youtubeInputEl.value = "";
-    mapInputEl.value = "";
   } else {
     alert("Please enter a valid response")
   }
@@ -89,68 +89,35 @@ var getYoutubeData = function(category) {
 };
 
 // add event listeners
-searchFormEl.addEventListener("submit", formSubmitHandler)
-
+//searchFormEl.addEventListener("submit", formSubmitHandler, getNewsData)
+searchFormEl.addEventListener("submit", getNews)
 // getYoutubeData();
 
-//News Submit handler
-var formSubmitHandler = function(event) {
-    event.preventDefault();
-  
-  // var cityName = mapInputEl.value.trim();
-    var genreName = newsInputEl.value.trim();
-  
-    if (articleName) {
-      getNewsData(articleName);
-      newsInputEl.value = "";
-      mapInputEl.value = "";
-    } else {
-      alert("Please enter a valid response")
-    }
-  
-    console.log(event);
-  }
-
 //News Api
- var getNewsData = function(category) {
+function getNews(){
+    fetch("https://newsapi.org/v2/everything?q=bitcoin&apiKey=64182e052fd1413bba8aa03676db4aa2")
+    .then(a=>a.json())
+    .then(response=> {
+        for(var i=0; i<response.articles.length; i++){
 
-     var apiUrl = 'https://newsapi.org/v2/everything?q=' + category + '&from=2022-02-09&' + 'sortBy=popularity&' + 'apiKey=64182e052fd1413bba8aa03676db4aa2';
-    
-     fetch(apiUrl)
-     .then(function(response) {
-         if (response.ok) {
-             response.json().then(function(data) {
-                 displayNews(data, category);
-             });
-         } else {
-             alert("Error: Articles Not Found");
-         }
-     })
-     .catch(function(error) {
-         alert("Unable to connect to News");
-     });
- };
+            var articleName = response.articles[i].title;
+            var articleImg = response.articles[i].urlToImage;
+            var articleDescription = response.articles[i].description;
+            var newsContainerEl = document.createElement("a");
+            newsContainerEl.classList = "card cell small-3 margin-top textcenter";
+            newsList.appendChild(newsContainerEl);
 
-var displayNews = function(news) {
-    var newsItem = news.items;
-  if (news.length === 0) {
-    newsContainerEl.textContent = "No Arcticles found!";
-    return;
-  }
+            titleEl = document.createElement("h5");
+            titleEl.textContent = articleName;
+            newsImgEl = document.createElement("img");
+            newsImgEl.setAttribute("src", articleImg);
+            newsDescriptionEl = document.createElement("h5");
+            newsDescriptionEl.textContent = articleDescription;
 
-  newsContainerEl.textContent = "";
-  
-  for (var i = 0; i < newsItem.length; i++) {
-      var articleContainerEl = document.createElement("a");
-      articleContainerEl.classList = "card cell small-5 margin-top textcenter";
-      articleContainerEl.setAttribute("href");
+            newsContainerEl.appendChild(titleEl);
+            newsContainerEl.appendChild(newsImgEl);
+            newsContainerEl.appendChild(newsDescriptionEl);
 
-      newsContainerEL.appendChild(vidContainerEl);
-    // create elements to hold article name
-    titleEl = document.createElement("h5");
-    titleEl.textContent = arcticleName;
-    // append to container
-    articleContainerEl.appendChild(titleEl);
-  }
-
+        }
+    })
 }
