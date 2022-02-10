@@ -11,6 +11,7 @@
 .card {
     background-color: #cc4b37;
     color: white;
+    border-radius: 5px;
 }
 
 .textcenter {
