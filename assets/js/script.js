@@ -106,7 +106,9 @@ var displayNews = function(articles, response) {
             console.log(articleName);
             var articleImg = articles.data[i].image_url;
             var articleDescription = articles.data[i].description;
+            var articleLink = articles.data[i].url;
             var newsContainer = document.createElement("a");
+            newsContainer.setAttribute("href", articleLink)
             newsContainer.classList = "card cell small-3 margin-top textcenter";
             newsContainerEL.appendChild(newsContainer);
             titleEl = document.createElement("h5");
