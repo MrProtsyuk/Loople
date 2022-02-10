@@ -89,8 +89,8 @@ var getYoutubeData = function(category) {
 };
 
 // add event listeners
-//searchFormEl.addEventListener("submit", formSubmitHandler, getNewsData)
-searchFormEl.addEventListener("submit", getNews)
+searchFormEl.addEventListener("submit", formSubmitHandler)
+// searchFormEl.addEventListener("submit", getNews)
 // getYoutubeData();
 
 //News Api
