@@ -69,7 +69,7 @@ var displayYoutube = function(videos, searchTerm) {
 // get data from yelp api
 var getYoutubeData = function(category) {
   // format yelp api url
-  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyBesPKCUcxbpbCE_P6EIs5Exiz4ZmMW8Sc";
+  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyDMU8jNcI3xoDyateN9MF02LaTtaaVXfAQ";
 
   // make request to url with nested then function
   fetch(apiUrl).then(function(response) {
@@ -99,7 +99,7 @@ var displayNews = function(articles, response) {
   }
 
   newsContainerEL.textContent = "";
-  
+
         for(var i=0; i< articles.data.length; i++){
             var articleName = articles.data[i].title;
             var articleImg = articles.data[i].image_url;
