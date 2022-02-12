@@ -1,6 +1,4 @@
 # Loople
-
-## Screen Record
 ![Loople](https://user-images.githubusercontent.com/94665080/153729606-7f78a6e0-8705-4b82-a896-744fd5b0e13e.gif)
 
 ## Technologies
