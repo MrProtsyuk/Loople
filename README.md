@@ -10,3 +10,8 @@ A one stop website for searching multiple platforms at once. Why search through 
 ## Link 
 https://ridercogswell.github.io/tunedin/
 
+## Contributors
+* Rider Cogswell
+* Mark Protsyuk
+* Kaylyn Clark
+* Peter Iliff
