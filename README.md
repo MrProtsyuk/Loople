@@ -6,10 +6,7 @@
 Javascript, HTML, CSS, Foundation API, Youtube API, The News API
 
 ## Description
-A one stop website for searching multiple platforms at once. Why search through multiple google links, youtube videos, and news articles when you could just Loople it? Stay in the loop with Loople!
-
-## Link 
-https://ridercogswell.github.io/tunedin/
+A one stop website for searching multiple platforms at once. Why search through multiple google links, youtube videos, and news articles when you could just Loople it? Stay in the loop with Loople! An interactive webpage that allows a user to search a topic and be given a response on the latest news, videos, and in the future, social media posts.
 
 ## Contributors
 * Rider Cogswell
@@ -42,11 +39,6 @@ Have a polished UI.
 Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
-# Technologies Used
-Foundation for the CSS frame work
-
-Youtube API and TheNewsAPI for our server side APIs
 
 # Link to Deployed Application
 https://mrprotsyuk.github.io/Loople/
