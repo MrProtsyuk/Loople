@@ -2,19 +2,14 @@
 
 ![Loople](https://user-images.githubusercontent.com/94665080/153729606-7f78a6e0-8705-4b82-a896-744fd5b0e13e.gif)
 
-## Link 
-https://ridercogswell.github.io/tunedin/
-
 ## Contributors
 * Rider Cogswell
 * Mark Protsyuk
 * Kaylyn Clark
 * Peter Iliff
-=======
-Loople is an interactive webpage that allows a user to search a topic and be given a response on the latest news, videos, and in the future, social media posts.
 
 ## User Story
-I want an application where I can search top results on topics and people I am interested in without using a host of different websites or having to go through a bunch of links on Google.
+I want an application where I can search top results on topics and people I am interested in without using a host of different websites or having to go through a bunch of links on Google. Loople is an interactive webpage that allows a user to search a topic and be given a response on the latest news, videos, and in the future, social media posts.
 
 ## Requirements
 * Use a CSS framework other than Bootstrap.
