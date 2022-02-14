@@ -6,6 +6,14 @@ var youtubeContainerEL = document.querySelector("#youtube");
 var newsContainerEL = document.querySelector("#news-list")
 var newsInputEl = document.querySelector(".musictype");
 
+// get the modal
+var modal = document.getElementById("myModalNews");
+var modal = document.getElementById("myModalArticle");
+var modal = document.getElementById("myModalYoutube");
+var modal = document.getElementById("myModalVideo");
+var modal = document.getElementById("myModalValid");
+
+var searchResults = {};
 
 // handle form submission
 var formSubmitHandler = function(event) {
@@ -20,7 +28,7 @@ var formSubmitHandler = function(event) {
     getNews(genreName);
     newsInputEl.value = "";
   } else {
-    alert("Please enter a valid response")
+    $('#myModalValid').modal('show');
   }
 
   console.log(event);
@@ -48,6 +56,7 @@ var displayYoutube = function(videos, searchTerm) {
     var vidContainerEl = document.createElement("a");
     vidContainerEl.classList = "card cell small-3 margin-top textcenter";
     vidContainerEl.setAttribute("href", "https://www.youtube.com/watch?v=" + videoLink);
+    vidContainerEl.setAttribute("target", "_blank");
 
     youtubeContainerEL.appendChild(vidContainerEl);
     // create elements to hold video name, channel name, and img
@@ -69,7 +78,7 @@ var displayYoutube = function(videos, searchTerm) {
 // get data from yelp api
 var getYoutubeData = function(category) {
   // format yelp api url
-  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyCYnUFNOBqY9wkENTkdnMiu9xWlbJnRHBk";
+  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyDrkstLoRWsrCazGEQH-AR8sPE_k29Wi6w";
 
   // make request to url with nested then function
   fetch(apiUrl).then(function(response) {
@@ -80,11 +89,12 @@ var getYoutubeData = function(category) {
         console.log(data, category);
       });
     } else {
-      alert("Error: YouTube Users Not Found")
+      $("#myModalVideo").modal('show');
     }
   })
   .catch(function(error) {
-    alert("Unable to connect to YouTube");
+    $('#myModalYoutube').modal('show');
+    
   });
 
   console.log(category);
@@ -107,6 +117,7 @@ var displayNews = function(articles, response) {
             var articleLink = articles.data[i].url;
             var newsContainer = document.createElement("a");
             newsContainer.setAttribute("href", articleLink)
+            newsContainer.setAttribute("target", "_blank");
             newsContainer.classList = "card cell small-3 margin-top textcenter";
             newsContainerEL.appendChild(newsContainer);
             titleEl = document.createElement("h5");
@@ -137,16 +148,32 @@ var getNews = function(category) {
         console.log(data, category);
       });
     } else {
-      alert("Error: Articles Not Found")
+      $('#myModalArticle').modal('show');
     }
   })
   .catch(function (error) {
-    alert("Unable to connect to News");
+    $('#myModalNews').modal('show');
   });
 
   console.log(category);
 }
-
+// when the user clicks anywhere outside of the modal, close it 
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+// local storage
+/*
+var loadSearch = function() {
+  searchResults = JSON.parse(localStorage.getItem("searchResults"));
+}
+console.log(loadSearch);
+var saveSearch = function() {
+  localStorage.setItem("searchResults", JSON.stringify(searchResults));
+} 
+console.log(saveSearch);
+*/
 // add event listeners
 searchFormEl.addEventListener("submit", formSubmitHandler)
 
