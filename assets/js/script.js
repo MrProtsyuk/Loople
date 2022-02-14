@@ -69,7 +69,7 @@ var displayYoutube = function(videos, searchTerm) {
 // get data from yelp api
 var getYoutubeData = function(category) {
   // format yelp api url
-  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyCYnUFNOBqY9wkENTkdnMiu9xWlbJnRHBk";
+  var apiUrl = "https://youtube.googleapis.com/youtube/v3/search?q=" + category + "&part=snippet&maxResults=6&key=AIzaSyDrkstLoRWsrCazGEQH-AR8sPE_k29Wi6w";
 
   // make request to url with nested then function
   fetch(apiUrl).then(function(response) {
